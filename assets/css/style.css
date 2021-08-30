@@ -10,9 +10,22 @@
 .output {
     height: 250px;
     overflow-y: scroll;
-    scrollbar-width: thin;
     font: 1.1rem Inconsolata, monospace;
 }
+
+.output::-webkit-scrollbar {
+    width: 0.2em;
+    height: 2em
+}
+.output::-webkit-scrollbar-button {
+    background: #ccc
+}
+.output::-webkit-scrollbar-track-piece {
+    background: #888
+}
+.output::-webkit-scrollbar-thumb {
+    background: #eee
+}​
 
 .height-100 {
     height: 100%;
@@ -20,4 +33,8 @@
 
 .errorLog {
     color: red;
+}
+
+.result-h5 {
+    border-bottom: 1px dashed;
 }
