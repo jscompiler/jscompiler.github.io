@@ -11,10 +11,17 @@
         htmlMode: true,
     });
     
-    editor.setValue(`/**\n* Print Some Value\n*/\nconsole.log("Hello World");`);
+    const defaultCode = localStorage.getItem("code") || `/**
+* Write your code and
+* hit enter to execute it
+*/
+console.log("Hello Dev");`;
+
+    editor.setValue(defaultCode);
     editor.setSize(codeEditorDiv[0].clientWidth, codeEditorDiv[0].clientHeight - 2);
 
     editor.on('change', (editor) => {
+        localStorage.setItem('code', editor.doc.getValue());
         const code = editor.doc.getValue().replaceAll("console.log", "console.myTestLog");
 
         try {
@@ -23,7 +30,7 @@
             console.myTestLog = function() {
                 allLog.push(Array.from(arguments));
             }
-            
+
             Object.prototype.toString = function () {
                 return JSON.stringify(this);
             }
