@@ -8,7 +8,7 @@
 }
 
 .output {
-    min-height: 250px;
+    height: 250px;
     overflow-y: scroll;
     font: 1.1rem Inconsolata, monospace;
 }
