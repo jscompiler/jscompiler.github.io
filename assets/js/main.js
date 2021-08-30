@@ -4,6 +4,7 @@
     var codeEditorDiv = document.getElementById("codeEditor");
     var result = document.getElementById("result");
     var errorDiv = document.getElementById("error");
+    var clearBtn = document.getElementById("clearBtn");
 
     const defaultCode = localStorage.getItem("code") || `/**
 * Write your code and
@@ -44,4 +45,9 @@ console.log("Hello Dev");`;
             }
         });
     });
+
+    clearBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        result.innerHTML = "";
+    });   
 })();

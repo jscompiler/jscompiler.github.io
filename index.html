@@ -25,16 +25,30 @@
         <div class="row border editor">
             <div class="col-7 border-end codeEditor p-0" id="codeEditor"></div>
             <div class="col">
-                <div class="row col border-bottom output p-2">
-                  <div>
-                    <h5 class="result-h5">Output</h5>
-                    <div id="result"></div>
+                <div class="row col border-bottom output">
+                  <div class="card p-0 rounded-0">
+                    <div class="card-header bg-white">
+                       <div class="row">
+                         <div class="col-10">Output</div>
+                         <div class="col text-end fs-6">
+                           <a href="#" id="clearBtn">clear</a>
+                         </div>
+                       </div>
+                    </div>
+                    <div class="card-body" id="result">
+                    </div>
                   </div>
                 </div>
-                <div class="row col output errorLog p-2">
-                  <div>
-                    <h5 class="result-h5">Error</h5>
-                    <div id="error"></div>
+                <div class="row col output errorLog">
+                  <div class="card p-0 rounded-0">
+                    <div class="card-header bg-white">
+                       <div class="row">
+                         <div class="col-10">Error</div>
+                         <div class="col text-end fs-6"></div>
+                       </div>
+                    </div>
+                    <div class="card-body" id="error">
+                    </div>
                   </div>
                 </div>
             </div>

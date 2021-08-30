@@ -1,14 +1,14 @@
 .editor {
-    height: 500px;
+    min-height: 500px;
 }
 
 .codeEditor {
     overflow: hidden;  
-    height: 498px !important;  
+    min-height: 498px !important;  
 }
 
 .output {
-    height: 250px;
+    min-height: 250px;
     overflow-y: scroll;
     font: 1.1rem Inconsolata, monospace;
 }
