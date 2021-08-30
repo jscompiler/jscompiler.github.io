@@ -23,6 +23,10 @@
             console.myTestLog = function() {
                 allLog.push(Array.from(arguments));
             }
+            
+            Object.prototype.toString = function () {
+                return JSON.stringify(this);
+            }
 
             new Function(code)();
             result.innerHTML = allLog.join("<br/>");
