@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Js Compiler</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/vendor/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <main class="flex-shrink-0">
+      <div class="container">
+        <div class="row col text-center">
+            <h1 class="mt-3 mb-4">Run Javascript Code</h1>
+        </div>
+        
+        <div class="row border editor">
+            <div class="col border-end codeEditor p-0">
+                <textarea id="code" name="code" class="height-100"></textarea>
+            </div>
+            <div class="col">
+                <div class="row col border-bottom output p-2" id="result">
+                </div>
+                <div class="row col output errorLog p-2" id="error">
+                </div>
+            </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mt-4 text-center">Build by <a href="https://www.linkedin.com/in/subhendumondal/" target="__blank">Subhendu Mondal</a></footer>
+
+    <script src="/assets/vendor/codemirror/lib/codemirror.js"></script>
+    <script src="/assets/vendor/codemirror/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+  </body>
+</html>
