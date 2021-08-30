@@ -2,11 +2,16 @@
     height: 500px;
 }
 
+.codeEditor {
+    overflow: hidden;  
+    height: 498px !important;  
+}
+
 .output {
     height: 250px;
     overflow-y: scroll;
     scrollbar-width: thin;
-    font: 1.2rem Inconsolata, monospace;
+    font: 1.1rem Inconsolata, monospace;
 }
 
 .height-100 {
