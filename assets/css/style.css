@@ -1,16 +1,21 @@
 .editor {
-    min-height: 500px;
+    min-height: 535px;
 }
 
 .codeEditor {
     overflow: hidden;  
-    min-height: 498px !important;  
+    min-height: 533px !important;  
+}
+
+.oPanle {
+    height: 267.5px;
 }
 
 .output {
-    height: 250px;
+    height: 200px;
     overflow-y: scroll;
     font: 1.1rem Inconsolata, monospace;
+    text-shadow: 0 0 5px #C8C8C8;
 }
 
 .output::-webkit-scrollbar {

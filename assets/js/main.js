@@ -1,5 +1,6 @@
 (function() {
     require.config({ paths: { vs: '/assets/vendor/monaco-editor/min/vs' } });
+    feather.replace();
 
     var codeEditorDiv = document.getElementById("codeEditor");
     var result = document.getElementById("result");
@@ -50,4 +51,5 @@ console.log("Hello Dev");`;
         event.preventDefault();
         result.innerHTML = "";
     });   
+
 })();

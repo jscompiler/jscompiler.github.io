@@ -17,29 +17,32 @@
   </head>
   <body>
     <main class="flex-shrink-0">
-      <div class="container">
-        <div class="row col text-center">
-            <h1 class="mt-3 mb-4">Run Javascript Code</h1>
+      <div class="container-fluid">
+        <div class="row col mt-3 mb-4">
+            <h5 class="card-title">Run Javascript Code</h5>
+            <p class="card-text">
+              Use this tool to write and test small piece of javascript code.
+            </p>
         </div>
         
-        <div class="row border editor">
+        <div class="row border editor" id="editor">
             <div class="col-7 border-end codeEditor p-0" id="codeEditor"></div>
             <div class="col">
-                <div class="row col border-bottom output">
+                <div class="row col border-bottom oPanle">
                   <div class="card p-0 rounded-0">
                     <div class="card-header bg-white">
                        <div class="row">
                          <div class="col-10">Output</div>
                          <div class="col text-end fs-6">
-                           <a href="#" id="clearBtn">clear</a>
+                          <a href="#" id="clearBtn"><i data-feather="x-square"></i></a>
                          </div>
                        </div>
                     </div>
-                    <div class="card-body" id="result">
+                    <div class="card-body output" id="result">
                     </div>
                   </div>
                 </div>
-                <div class="row col output errorLog">
+                <div class="row col errorLog oPanle">
                   <div class="card p-0 rounded-0">
                     <div class="card-header bg-white">
                        <div class="row">
@@ -47,7 +50,7 @@
                          <div class="col text-end fs-6"></div>
                        </div>
                     </div>
-                    <div class="card-body" id="error">
+                    <div class="card-body output" id="error">
                     </div>
                   </div>
                 </div>
@@ -56,10 +59,11 @@
       </div>
     </main>
 
-    <footer class="mt-4 text-center">Read more about <a href="https://www.linkedin.com/in/subhendumondal/" target="__blank">author</a>.</footer>
+    <footer class="mt-1 text-center">Read more about <a href="https://www.linkedin.com/in/subhendumondal/" target="__blank">author</a>.</footer>
 
-
+    <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script src="/assets/vendor/monaco-editor/min/vs/loader.js"></script>
     <script type="text/javascript" src="/assets/js/main.js"></script>
+
   </body>
 </html>
