@@ -290,7 +290,7 @@ const bootstrapUi = (editor) => {
 
             const timeTaken = end - start;
             result.innerHTML = allLog.join("<br/>");
-            showTimeForExecution.innerHTML = `<em>Its took <span class="badge bg-secondary">${timeTaken.toFixed(2)}</span> milliseconds<em>`;
+            showTimeForExecution.innerHTML = `<em>Its took <span class="badge bg-secondary">${timeTaken.toFixed(2)}</span> ms.<em>`;
             errorDiv.innerHTML = "";
         }
         catch(err) {
