@@ -197,6 +197,13 @@ const initContextMenu = (editor) => {
 const bootstrapUi = (editor) => {
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+
+    const authorLink = document.getElementById('authorLink');
+    authorLink.addEventListener("click", () => {
+        const r = confirm("You will be redirected to linkedin. are you want to continue ?");
+        if (r == true) window.open('https://www.linkedin.com/in/subhendumondal/', '_blank');
+    })
+    
     
     initContextMenu(editor);
 }
