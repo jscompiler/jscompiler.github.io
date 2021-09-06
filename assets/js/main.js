@@ -16,6 +16,24 @@ const getEditor = () => {
 }
 
 /**
+ * Convert milisecond to human readble 
+ * time format
+ * @param {Number} ms 
+ * @returns 
+ */
+const inHumanReadbleTime = (ms) => {
+    let seconds = (ms / 1000).toFixed(2);
+    let minutes = (ms / (1000 * 60)).toFixed(2);
+    let hours = (ms / (1000 * 60 * 60)).toFixed(2);
+    let days = (ms / (1000 * 60 * 60 * 24)).toFixed(2);
+    if(ms < 1000) return ms.toFixed(2) + " Ms"
+    else if (seconds < 60) return seconds + " Sec";
+    else if (minutes < 60) return minutes + " Min";
+    else if (hours < 24) return hours + " Hrs";
+    else return days + " Days"
+}
+
+/**
  * Init About Menu
  */
 const initAboutMenu = () => {
@@ -204,7 +222,6 @@ const bootstrapUi = (editor) => {
         if (r == true) window.open('https://www.linkedin.com/in/subhendumondal/', '_blank');
     })
     
-    
     initContextMenu(editor);
 }
 
@@ -297,13 +314,14 @@ const bootstrapUi = (editor) => {
 
             const timeTaken = end - start;
             result.innerHTML = allLog.join("<br/>");
-            showTimeForExecution.innerHTML = `<em>Its took <span class="badge bg-secondary">${timeTaken.toFixed(2)}</span> ms.<em>`;
+            showTimeForExecution.innerHTML = `<em>Executed in <span class="badge bg-secondary">${inHumanReadbleTime(timeTaken)}</span><em>`;
             errorDiv.innerHTML = "";
         }
         catch(err) {
             const errorLine = JSON.stringify(err.stack).split("\\n").shift();
             errorDiv.innerHTML = errorLine.replace("\"", "");
             result.innerHTML = "";
+            showTimeForExecution.innerHTML = "";
         }
     }
 })();
