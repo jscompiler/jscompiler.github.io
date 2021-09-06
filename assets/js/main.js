@@ -100,6 +100,7 @@ const initCaptureMenu = () => {
 const setPreferenceDefaultValues = () => {
 
     let preselectedPreferences = {
+        wordWrap: false,
         lineNumbers: true,
         roundedSelection: true,
         scrollBeyondLastLine: true,
@@ -113,7 +114,7 @@ const setPreferenceDefaultValues = () => {
     const formEl = document.forms.preferencesForm;
     Object.values(formEl).forEach((field) => {
 
-        const configCheck = ['lineNumbers', 'roundedSelection', 'scrollBeyondLastLine'];
+        const configCheck = ['lineNumbers', 'roundedSelection', 'scrollBeyondLastLine', 'wordWrap'];
         if(configCheck.includes(field.name)) {
             field.checked = preselectedPreferences[field.name];
             return;
@@ -121,6 +122,11 @@ const setPreferenceDefaultValues = () => {
 
         if(field.name === 'theme') {
             field.checked = preselectedPreferences[field.name] === "vs-dark" ? true : false;
+            return;
+        }
+
+        if(field.name === 'wordWrap') {
+            field.checked = preselectedPreferences[field.name] === "on";
             return;
         }
 
@@ -136,7 +142,7 @@ const setPreferenceDefaultValues = () => {
 const formSubmit = (event) => {
     event.preventDefault();
 
-    const configCheck = ['lineNumbers', 'roundedSelection', 'scrollBeyondLastLine', 'theme'];
+    const configCheck = ['lineNumbers', 'roundedSelection', 'scrollBeyondLastLine', 'theme', 'wordWrap'];
     const formEl = document.forms.preferencesForm;
 
     const fieldValues = Object.values(formEl).reduce((ac, field) => {
@@ -147,6 +153,7 @@ const formSubmit = (event) => {
         else if(field.name === "theme") value = "vs";
 
         if(field.name === 'fontSize') value = +field.value;
+        if(field.name === 'wordWrap') value = field.value;
 
         if(field.value) Object.defineProperty(ac, field.name , { value, writable: true, enumerable: true })
         return ac;
