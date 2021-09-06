@@ -249,7 +249,7 @@ const bootstrapUi = (editor) => {
     const oPanels = document.getElementsByClassName("oPanle");
     const showTimeForExecution = document.getElementById("showTimeForExecution");
 
-    codeEditorDiv.style.height = (document.body.clientHeight - nonEditorArea.clientHeight - 20) + "px";
+    codeEditorDiv.style.height = (document.body.clientHeight - nonEditorArea.clientHeight - 3) + "px";
     Array.from(oPanels).forEach((oPanle) => oPanle.style.height = (codeEditorDiv.clientHeight / 2) + "px");
 
     const defaultCode = localStorage.getItem("code") || `/**\n* Write your code and\n* hit Ctrl + Enter to execute it\n*/\nconsole.log("Hello Dev");`;
