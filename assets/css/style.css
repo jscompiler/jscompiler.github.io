@@ -62,8 +62,13 @@
 .modal-fsm {
     width: 365px;
 }
-.profile-iframe {
-    border-style: none;
-    width: 335px; 
-    height: 275px;
+
+.header-45 {
+  height: 45px !important;
+}
+
+.footer-p {
+  height: 45px;
+  padding: 0px;
+  padding-right: 0.45rem;
 }
