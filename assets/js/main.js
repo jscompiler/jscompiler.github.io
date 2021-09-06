@@ -31,6 +31,49 @@ const initAboutMenu = () => {
 }
 
 /**
+ * Download Canvas
+ * @param {Object} canvas 
+ * @param {String} filename 
+ */
+const downloadCanvas = (canvas, filename) => {
+    var lnk = document.createElement('a'), e;
+
+    lnk.download = filename;
+    lnk.href = canvas.toDataURL("image/png;base64");
+  
+    if (document.createEvent) {
+      e = document.createEvent("MouseEvents");
+      e.initMouseEvent("click", true, true, window,
+                       0, 0, 0, 0, 0, false, false, false,
+                       false, 0, null);
+  
+      lnk.dispatchEvent(e);
+    } 
+    else if (lnk.fireEvent) {
+      lnk.fireEvent("onclick");
+    }
+}
+
+/**
+ * Init Capture Menu
+ */
+const initCaptureMenu = () => {
+    const captureEditor = document.getElementById('captureEditor');
+
+    captureEditor.addEventListener("click", () => {
+        let codeEditor = document.getElementById('codeEditor');
+
+        html2canvas(codeEditor)
+            .then(canvas => {
+                downloadCanvas(canvas, "code.png");
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    });
+}
+
+/**
  * Set the default values for 
  * Preference form
  * @returns null
@@ -142,6 +185,7 @@ const initSaveCodeMenu = (editor) => {
  */
 const initContextMenu = (editor) => {
     initAboutMenu();
+    initCaptureMenu();
     initPreferences();
     initSaveCodeMenu(editor);
     setPreferenceDefaultValues();
