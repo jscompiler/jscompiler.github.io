@@ -26,7 +26,7 @@ const inHumanReadbleTime = (ms) => {
     let minutes = (ms / (1000 * 60)).toFixed(2);
     let hours = (ms / (1000 * 60 * 60)).toFixed(2);
     let days = (ms / (1000 * 60 * 60 * 24)).toFixed(2);
-    if(ms < 1000) return ms.toFixed(2) + " Ms"
+    if(ms < 100) return ms.toFixed(2) + " Ms";
     else if (seconds < 60) return seconds + " Sec";
     else if (minutes < 60) return minutes + " Min";
     else if (hours < 24) return hours + " Hrs";
