@@ -215,6 +215,7 @@ const bootstrapUi = (editor) => {
     const clearBtn = document.getElementById("clearBtn");
     const runBtn = document.getElementById("run");
     const oPanels = document.getElementsByClassName("oPanle");
+    const showTimeForExecution = document.getElementById("showTimeForExecution");
 
     codeEditorDiv.style.height = (document.body.clientHeight - nonEditorArea.clientHeight - 20) + "px";
     Array.from(oPanels).forEach((oPanle) => oPanle.style.height = (codeEditorDiv.clientHeight / 2) + "px");
@@ -261,6 +262,7 @@ const bootstrapUi = (editor) => {
     clearBtn.addEventListener("click", (event) => {
         event.preventDefault();
         result.innerHTML = "";
+        showTimeForExecution.innerHTML = "";
     }); 
     
     /**
@@ -282,8 +284,13 @@ const bootstrapUi = (editor) => {
                 return JSON.stringify(this);
             }
 
+            let start = performance.now();
             new Function(code)();
+            let end = performance.now();
+
+            const timeTaken = end - start;
             result.innerHTML = allLog.join("<br/>");
+            showTimeForExecution.innerHTML = `<em>Its took <span class="badge bg-secondary">${timeTaken.toFixed(2)}</span> milliseconds<em>`;
             errorDiv.innerHTML = "";
         }
         catch(err) {
