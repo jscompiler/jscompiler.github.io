@@ -309,11 +309,21 @@ const bootstrapUi = (editor) => {
         try {
             var allLog = [];
             console.myTestLog = function() {
+                const args = Array.from(arguments);
+                if(args.includes(window)) {
+                    let indexOf = args.indexOf(window);
+                    args.splice(1, indexOf);
+                }
+
                 allLog.push(Array.from(arguments));
             }
 
             Object.prototype.toString = function () {
                 return JSON.stringify(this);
+            }
+
+            eval = function() {
+                throw new Error("eval(...) is not a known function");
             }
 
             let start = performance.now();
