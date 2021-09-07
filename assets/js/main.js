@@ -267,6 +267,10 @@ const bootstrapUi = (editor) => {
         });
 
         setEditor(editor);
+
+        /**
+         * Execution Action
+         */
         editor.addAction({
             id: 'ctrlCmd_Enter',
             label: 'Execution Command',
@@ -276,6 +280,23 @@ const bootstrapUi = (editor) => {
             contextMenuGroupId: 'navigation',
             contextMenuOrder: 1.5,
             run: (ed) => executeCode(editor)
+        });
+
+        /**
+         * Save Action
+         */
+        editor.addAction({
+            id: 'CTRL_S',
+            label: 'Save Command',
+            keybindings: [ monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S ],
+            precondition: null,
+            keybindingContext: null,
+            contextMenuGroupId: 'navigation',
+            contextMenuOrder: 1.5,
+            run: (ed) => {
+                const saveCodeMenu = document.getElementById('saveCodeEditor');
+                saveCodeMenu.click();
+            }
         });
 
         /**
