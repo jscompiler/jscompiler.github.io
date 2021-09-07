@@ -14,6 +14,7 @@
 .output {
   height: 200px;
   overflow-y: scroll;
+  overflow-x: hidden;
   font: 1.1rem Inconsolata, monospace;
   text-shadow: 0 0 5px #c8c8c8;
 }
