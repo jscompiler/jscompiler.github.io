@@ -252,7 +252,7 @@ const bootstrapUi = (editor) => {
     codeEditorDiv.style.height = (document.body.clientHeight - nonEditorArea.clientHeight - 3) + "px";
     Array.from(oPanels).forEach((oPanle) => oPanle.style.height = (codeEditorDiv.clientHeight / 2) + "px");
 
-    const defaultCode = localStorage.getItem("code") || `/**\n* Write your code and\n* hit Ctrl + Enter to execute it\n*/\nconsole.log("Hello Dev");`;
+    const defaultCode = localStorage.getItem("code") || `\n/**\n* Write your code and\n* hit Ctrl + Enter to execute it\n*/\ninterface Person {\n    name: string,\n    age: number\n}\n\nlet person1: Person = { name: \"John doe\", age: 40 };\n\nconsole.log(person1);`;
 
     require(['vs/editor/editor.main'], function () {
 
@@ -261,7 +261,7 @@ const bootstrapUi = (editor) => {
 
         const editor = monaco.editor.create(codeEditorDiv, {
             value: defaultCode,
-            language: 'javascript',
+            language: 'typescript',
             automaticLayout: true,
             ...options
         });
@@ -325,7 +325,12 @@ const bootstrapUi = (editor) => {
     const executeCode = (editor) => {
         const tCode = editor.getValue();
         localStorage.setItem('code', tCode);
-        const code = tCode.replaceAll("console.log", "console.myTestLog");
+
+        /**
+         * Convert TypeScript to Javascript
+         */
+        const convertedJavascript = ts.transpileModule(tCode, { compilerOptions: { module: ts.ModuleKind.CommonJS }});
+        const code = convertedJavascript.outputText.replaceAll("console.log", "console.myTestLog");
         
         try {
             var allLog = [];
